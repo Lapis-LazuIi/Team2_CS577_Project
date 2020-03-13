@@ -8,5 +8,4 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
 	@Override
 	User save(User user);
-
 }
