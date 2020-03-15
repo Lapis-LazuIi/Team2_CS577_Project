@@ -20,4 +20,14 @@ public class RouteService implements IRouteService {
 		return routes;
 	}
 
+	@Override
+//	public List<Route> findOneway(String source, String destination, String date, String name, int adult,
+	// int seniorCitizen, int children, int infant) {
+	public List<Route> findOneway(String source, String destination) {
+//		List<Route> routesOneway = routeRepository.findOneway(source, destination, date, name, adult, seniorCitizen,
+//				children, infant);
+		List<Route> routesOneway = routeRepository.findOneway(source, destination);
+		return routesOneway;
+	}
+
 }
