@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css"/>
     <link rel="stylesheet" href="/css/style.css"/>
      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript">
     $(function() { // when DOM is ready
         $("document").ready(function(){ // when #showhidecomment is clicked
-            $("#h2").load("/getStops"); // load the sample.jsp page in the #chkcomments element
+            $("#h2").load("/getStopbyName"); // load the sample.jsp page in the #chkcomments element
         }); 
     });</script>
 
@@ -64,21 +66,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <h2>Search Tickets</h2>
-                <p><tr><td><label id="sourceLabel">Enter Source</label><br></td>
-                <td><input id="source" /><br></td>
-                </p>
-               </tr> 
-                <tr><td><label id="sourceLabel">Enter Destination</label><br></td><td><input id="destination" /></td></tr>
-                <p><a href="/getStopbyName">Details</a></p>
-                <p><a href="/searchbyAgency">DetailsUser</a></p>
 
-                <p><a  class="btn btn-secondary" id="btn" role="button" >Search</a></p>
-            
-            <p><a  id="dynamic" name="search" href="search.jsp" onload="changeContent()"></a></p>
 
-            </div>
             <div id="h2" class="col-md-7">
                 <h2>Heading</h2>
                 <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
