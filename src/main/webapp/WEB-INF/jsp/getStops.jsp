@@ -74,7 +74,7 @@ function showTrains(){
 $("#findTrains").click(function(){
 	
     $.ajax({
-        url : '/searchOneWay?source='+$("#Source").val()+'&destination='+$("#Destination").val()+
+        url : '/searchResults?source='+$("#Source").val()+'&destination='+$("#Destination").val()+
         		'&DepartDate='+$("#datepickerDepart").val()+'&ReturnDate='+$("#datepickerReturn").val()+
         		'&Adult='+$("#adults").val()+'&SeniorCitizen='+$("#seniorcitizen").val()+
         		'&Child='+$("#child").val()+'&Infant='+$("#infant").val(),
