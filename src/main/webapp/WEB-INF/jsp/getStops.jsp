@@ -72,7 +72,10 @@ function showTrains(){
 	}
 	
 $("#findTrains").click(function(){
-	
+	var url='/searchResults?source='+$("#Source").val()+'&destination='+$("#Destination").val()+
+        		'&DepartDate='+$("#datepickerDepart").val()+'&ReturnDate='+$("#datepickerReturn").val()+
+        		'&Adult='+$("#adults").val()+'&SeniorCitizen='+$("#seniorcitizen").val()+
+        		'&Child='+$("#child").val()+'&Infant='+$("#infant").val();
     $.ajax({
         url : '/searchResults?source='+$("#Source").val()+'&destination='+$("#Destination").val()+
         		'&DepartDate='+$("#datepickerDepart").val()+'&ReturnDate='+$("#datepickerReturn").val()+
@@ -82,6 +85,9 @@ $("#findTrains").click(function(){
         async : false,
         complete : function(data) {
             console.log(data.responseText);
+            if(data){
+                window.open(url, "_blank"); // site.com/controller/Details
+            }
         }
     });
 
