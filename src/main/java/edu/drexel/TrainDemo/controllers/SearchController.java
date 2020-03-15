@@ -35,7 +35,14 @@ public class SearchController {
 	}
 
 	@GetMapping("/searchOneWay")
-	public String searchOneWay(Model model) {
+	public String searchOneWay(@RequestParam(name = "source", required = false, defaultValue = "XXX") String source,
+			@RequestParam(name = "destination", required = false, defaultValue = "XXX") String destination,
+			@RequestParam(name = "DepartDate", required = false, defaultValue = "04-03-2020") String date,
+			@RequestParam(name = "ReturnDate", required = false, defaultValue = "04-03-2020") String name,
+			@RequestParam(name = "Adult", required = false, defaultValue = "0") int Adult,
+			@RequestParam(name = "SeniorCitizen", required = false, defaultValue = "0") int SeniorCitizen,
+			@RequestParam(name = "Children", required = false, defaultValue = "0") int Children,
+			@RequestParam(name = "Infant", required = false, defaultValue = "0") int Infant, Model model) {
 //
 		long agencyId = 51;
 		List<Route> routes = routeService.findRoutebyAgencyID(agencyId);
