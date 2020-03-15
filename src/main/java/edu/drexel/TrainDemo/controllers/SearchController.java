@@ -34,20 +34,36 @@ public class SearchController {
 		return "searchbyAgency";
 	}
 
-	@GetMapping("/searchOneWay")
-	public String searchOneWay(@RequestParam(name = "source", required = false, defaultValue = "XXX") String source,
+	@GetMapping("/searchResults")
+	public String searchResults(@RequestParam(name = "source", required = false, defaultValue = "XXX") String source,
 			@RequestParam(name = "destination", required = false, defaultValue = "XXX") String destination,
 			@RequestParam(name = "DepartDate", required = false, defaultValue = "04-03-2020") String date,
 			@RequestParam(name = "ReturnDate", required = false, defaultValue = "04-03-2020") String name,
-			@RequestParam(name = "Adult", required = false, defaultValue = "0") int Adult,
-			@RequestParam(name = "SeniorCitizen", required = false, defaultValue = "0") int SeniorCitizen,
-			@RequestParam(name = "Children", required = false, defaultValue = "0") int Children,
-			@RequestParam(name = "Infant", required = false, defaultValue = "0") int Infant, Model model) {
+			@RequestParam(name = "Adult", required = false, defaultValue = "0") int adult,
+			@RequestParam(name = "SeniorCitizen", required = false, defaultValue = "0") int seniorCitizen,
+			@RequestParam(name = "Children", required = false, defaultValue = "0") int children,
+			@RequestParam(name = "Infant", required = false, defaultValue = "0") int infant, Model model) {
 //
-		long agencyId = 51;
-		List<Route> routes = routeService.findRoutebyAgencyID(agencyId);
+		// long agencyId = 51;
+		// List<Route> routes = routeService.findRoutebyAgencyID(agencyId);
 //
+//		List<Route> routes = routeService.findOneway(source, destination, date, name, adult, seniorCitizen, children,
+//				infant);
+		List<Route> routes = routeService.findOneway(source, destination);
 		model.addAttribute("routes", routes);
-		return "searchOneWay";
+		return "searchResults";
 	}
+//
+//	@GetMapping("/searchResults")
+//	public String searchBySourceAndDestination(
+//			@RequestParam(name = "source", required = true, defaultValue = "") String source,
+//			@RequestParam(name = "destination", required = true, defaultValue = "") String destination, Model model) {
+//		source = "PHL";
+//		destination = "NYP";
+//		List<Route> routes = routeService.findBySearch(source, destination);
+//		model.addAttribute("routes", routes);
+//
+//		return "searchResults";
+//
+//	}
 }
